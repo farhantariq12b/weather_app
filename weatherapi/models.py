@@ -1,14 +1,3 @@
-# from django.db import models
-# from jsonfield import JSONField
-
-# class WeatherData(models.Model):
-#     latitude = models.FloatField()
-#     longitude = models.FloatField()
-#     detail_type = models.CharField(max_length=100)
-#     data = JSONField()
-#     last_updated = models.DateTimeField(auto_now=True)
-
-
 from django.db import models
 from jsonfield import JSONField
 

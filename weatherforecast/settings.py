@@ -15,9 +15,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-OPENWEATHER_API_KEY = '3862a6734c93a8af75939f2e8b4b2b9c'
+OPENWEATHER_API_KEY = ''
 DATA_EXPIRY_TIME = 10  # minutes
-GOOGLE_MAP_API_KEY = 'AIzaSyDOn-R9btG7IdzZYxyIliVI7tFF8g7OS6c'
+GOOGLE_MAP_API_KEY = ''
 BASE_URL = 'https://api.openweathermap.org/data/2.5/weather'
 API_BASE_URL = 'http://localhost:8000/api/weather-api'
 
