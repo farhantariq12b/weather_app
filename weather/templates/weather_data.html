@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Data</title>
+</head>
+<body>
+    <h1>Weather Forecast Data</h1>
+    {% if weather %}
+        <h2>Coordinates: Latitude {{ weather.latitude }} , Longitude {{ weather.longitude }}</h2>
+        <h3>Detailing Type: {{ weather.detailing_type }}</h3>
+        <h3>Last Updated: {{ weather.last_updated }}</h3>
+        <div>
+            <pre>{{ weather.data|safe }}</pre>
+        </div>
+    {% else %}
+        <p>No weather data available.</p>
+    {% endif %}
+    <a href="{% url 'get_weather' %}">New Request</a>
+</body>
+</html>

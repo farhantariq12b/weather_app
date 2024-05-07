@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast Form</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{GOOGLE_MAP_API_KEY}}&callback=initMap&libraries=&v=weekly" async defer></script>
+    <script>
+        let map;
+        let marker;
+
+        function initMap() {
+            const initialLocation = { lat: -34.397, lng: 150.644 };
+            map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 8,
+                center: initialLocation,
+            });
+
+            marker = new google.maps.Marker({
+                position: initialLocation,
+                map: map,
+                draggable: true
+            });
+
+            google.maps.event.addListener(map, 'click', function(event) {
+                placeMarker(event.latLng);
+            });
+
+            function placeMarker(location) {
+                marker.setPosition(location);
+                document.getElementById('id_latitude').value = location.lat();
+                document.getElementById('id_longitude').value = location.lng();
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Weather Forecast Request</h1>
+    <div id="map"></div>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Get Forecast</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,5 @@
+venv
+asstes
+__pycache__
+.env
+db.sqlite3
